@@ -1,9 +1,11 @@
-import { config as conf } from 'dotenv'
+import { config } from 'dotenv'
 
-conf()
+config()
 const _env = {
   port: process.env.PORT,
-  mongo_url: process.env.MONGODB_URL,
+  mongo_url: process.env.MONGO_CONNECTION_STRING,
+  node_env: process.env.NODE_ENV,
+  jwt_secret: process.env.JWT_SECRET,
 }
 
-export const config = Object.freeze(_env)
+export default Object.freeze(_env)

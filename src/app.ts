@@ -1,8 +1,13 @@
 import express from 'express'
+import globalErrorHandler from './middlewares/globalErrorHandler'
+import userRoute from './routes/userRoutes'
 
 const app = express()
 
-app.get('/', (req, res) => {
-  res.json({ message: 'this is json data' })
-})
+app.use(express.json())
+
+app.use('/api/user', userRoute)
+
+app.use(globalErrorHandler)
+
 export default app
